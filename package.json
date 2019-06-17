@@ -5,6 +5,7 @@
     "description": "Angie's Binary Search Tree",
     "main": "webpack.config.js",
     "scripts": {
+        "start:dev": "webpack-dev-server",
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack --mode development --progress --colors --content-base app.js"
     },
@@ -13,6 +14,7 @@
     "devDependencies": {
         "webpack": "4.32.2",
         "webpack-cli": "latest",
+        "webpack-dev-server": "latest",
         "jest": "24.8.0"
     },
     "dependencies": {
