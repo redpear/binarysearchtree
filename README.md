@@ -1,11 +1,16 @@
 ## JS Binary Search Tree Project
 
-# Requirements
+# Running the Project
 
-JEST test framework is required. You have to install it globally for command line use.
+To run the local web server use Webpack Dev Server
 
-https://jestjs.io/docs/en/getting-started.html
+From the project folder:
+''''
+npm run start:dev
+''''
 
-To run the code use jest:
+This runs a web server on localhost:8081
 
-jest Test/test.js --watch=all
+http://localhost:8081/
+
+Project code is in main.js
