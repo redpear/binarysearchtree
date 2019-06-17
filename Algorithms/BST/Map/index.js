@@ -1,4 +1,4 @@
-import { ModuleMap } from "jest-haste-map";
+
 
 let map = new Map();
 map.set("root", "name")
