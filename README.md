@@ -1,4 +1,4 @@
-## JS Binary Search Tree Project
+## JS Binary Search Tree using a Map Project
 
 # Running the Project
 
@@ -11,6 +11,6 @@ npm run start:dev
 
 This runs a web server on localhost:8081
 
-http://localhost:8081/
+http://localhost:8080/
 
 Project code is in main.js
