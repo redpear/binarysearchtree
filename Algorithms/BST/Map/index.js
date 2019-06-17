@@ -1,3 +1,5 @@
+import { ModuleMap } from "jest-haste-map";
+
 let map = new Map();
 map.set("root", "name")
 map.set("simple", "dimple");
@@ -75,3 +77,8 @@ class BinarySearchTree {
         }
     }
 }
+
+module.exports = BinarySearchTree, Map;
+
+
+
