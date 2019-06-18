@@ -6,10 +6,10 @@
 
 const map = new Map();
       map.set('root', 'name')
-         .set('simple', 'dimple')
+         .set('dimple', 'simple')
          .set('sally', 'sunshine')
-         .set('sandy','beach')
-         .set('things', 'apples')
+         .set('beach','sandy')
+         .set('apples', 'things')
          .set('uncles', 'aunts')
          .set('windy', 'town');
 
@@ -28,49 +28,51 @@ class BinarySearchTree {
     insert(key, value) {
         //console.log(`Key passed in: ${key}  value: passed in ${value}`);
         for(let item of map.entries()){
-                this.key = item[0];
-                this.value = item[1];
-
+                
                 if(this.root === null){
-                    this.root = item[0];
+                    this.root = item[0].toString();
                     console.log('Root' + ' ' + this.root);
                 }
-                if(key < item[0] && this.left && this.root !== null){
+                if(key < item[0].toString() && this.right){
+                     if(key !== null){
+                         map.delete(key);
+                     }
+                    this.right = this.insert(this.key, this.value);
                     
-                    this.left = this.insert(this.key, this.value);
-                    
-                    console.log("this.left key: " + ' ' + item[0]);
-                    console.log("this.left value: " + ' ' + item[1]);
-                    console.log("insert left:" + ' ' +  map.set(this.key, this.value));
+                    console.log("this.right key: " + ' ' + item[0]);
+                    console.log("this.right value: " + ' ' + item[1]);
+                    console.log("insert right:" + ' ' +  map.set(item[0], item[1]));
                     // this.insert(map.set(this.key, this.value)));
 
-                } else if(key < item[0] && this.root !== null){
+                } else if(key < item[0].toString()){
+                        
+                    console.log("this.right 2 key" + ' ' + item[0]);
+                    console.log("this.right 2 value" + " " + item[1]);
+
+                    this.left = map.set(item[0], item[1]);
                 
-                    console.log("this.left 2 key" + ' ' + this.key);
-                    console.log("this.value 2 value" + " " + this.value);
-
-                this.left = map.set(this.key, this.value);
-                
-                console.log("this.left = " + ' ' + this.left);
-                console.log('left new Node' + ' ' + map.set(this.key, this.value));
+                    console.log("this.left = " + ' ' + this.left);
+                    console.log('left new Node' + ' ' + map.set(item[0], item[1]));
                  
-             } else if(key > item[0] && this.right && this.root !== null){
+                } else if(key > item[0] && this.right){
                  
-                 console.log(this.insert(map.set(this.key, this.value)));
-                 console.log("this.right key" + ' ' + )
-                 console.log('right insert node: ' + ' ' + map.set(this.key, this.value));
+                    console.log(this.insert(map.set(item[0], item[1])));
 
-                 // this.right.insert(map.set(this.key, this.value
-             } else if(key > item && this.root !== null){
+                    console.log("this.right2 key" + ' ' + item[0]);
+                    console.log("this.right2 value" + ' ' + item[1]);
+                    console.log('right2 insert node: ' + ' ' + map.set(item[0], item[1]));
 
-                this.right = map.set(this.key, this.value);
+                    // this.right.insert(map.set(this.key, this.value
+                } else if(key > item && this.root !== null){
 
-                console.log("this.right: " + ' ' + this.right);
-                console.log("new right node: " + ' ' + map.set(this.key, this.value));
+                    this.right = map.set(item[0], item[1]);
 
-             } else {
-                 return null;
-             }
+                    console.log("this.right3: " + ' ' + this.right);
+                    console.log("new right3 node: " + ' ' + map.set(item[0], item[1]));
+
+                } else {
+                    return null;
+                }
 
             // for(let ent of map.entries()){
             //     console.log('Key' + ' ' + ent + ' ' + '' + 'Value: ' + ' ' + iterator.next().value);
