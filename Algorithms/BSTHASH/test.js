@@ -1,10 +1,10 @@
 const Node = require('./index');
 
-test('Node is a constructor', () => {
+test.skip('Node is a constructor', () => {
   expect(typeof Node.prototype.constructor).toEqual('function');
 });
 
-test('Node can insert correctly', () => {
+test.skip('Node can insert correctly', () => {
   const map = new Map();
   const node = new Node(map);
     map.set('root', 'name');

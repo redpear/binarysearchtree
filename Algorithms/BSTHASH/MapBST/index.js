@@ -9,9 +9,9 @@ map.set("things", "apples");
 map.set("uncles", "aunts");
 map.set("windy", "town");
 
-map.prototype.constructor.left;
-map.prototype.constructor.right;
-map.prototype.constructor.root;
+// map.prototype.constructor.left;
+// map.prototype.constructor.right;
+// map.prototype.constructor.root;
 
 class BinarySearchTree {
     constructor(key, value){
