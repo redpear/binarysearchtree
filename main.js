@@ -33,42 +33,42 @@ class HashTable {
         return bucket; // index of the bucket the hash node goes into the hash table
     };
 
-//     insertHash(key, value){
-//         // first figure out what bucket the HashNode(key, value) goes into by the index of the array
-//         // get the index of the array
-//         let index = this.hash(key); // bucket which is the index of the array
-//         // 2 scenarios: check if bucket is empty else bucket is not empty and go through the chain if ther
-//         // is a chain to the last node.
-//         if(!this.buckets[index]){     // if the hashtable is empty
-//             this.buckets[index] = new HashNode(key, value);      //make a new new node at that index. 
-//             let newNode = this.buckets[index];
-//             //this.insertBst(newNode.key, newNode.value);
-//         } else if(this.buckets[index].key === key) {  // checks the first node, always checking the next node
-//             console.log('Key in insertHash ' + this.buckets[index].key);   
-//             this.buckets[index].value = value; // will update the email address if they are at the first node in the bucket
-//         }
+    insertHash(key, value){
+        // first figure out what bucket the HashNode(key, value) goes into by the index of the array
+        // get the index of the array
+        let index = this.hash(key); // bucket which is the index of the array
+        // 2 scenarios: check if bucket is empty else bucket is not empty and go through the chain if ther
+        // is a chain to the last node.
+        if(!this.buckets[index]){     // if the hashtable is empty
+            this.buckets[index] = new HashNode(key, value);      //make a new new node at that index. 
+            let newNode = this.buckets[index];
+            //this.insertBst(newNode.key, newNode.value);
+        } else if(this.buckets[index].key === key) {  // checks the first node, always checking the next node
+            console.log('Key in insertHash ' + this.buckets[index].key);   
+            this.buckets[index].value = value; // will update the email address if they are at the first node in the bucket
+        }
         
-//         else {    // if hash table not empty whether one node or a chain of nodes cycle through it add last node in hte chain
-//             let currentNode = this.buckets[index];  // if there is one node
-//             console.log('key in insertHash again ' + this.buckets[index].key)
-//             while(currentNode.next){ // while this is not the last node in the chain
-//                 console.log('hash insert currentNode.next ' + currentNode.next);
-//                 console.log('hash insert currentNode.next.key  ' + currentNode.next.key);
-//                 if(currentNode.next.key === key) {  // update the email address
-//                     currentNode.next.value = value; // equal to the value passed in
-//                     return;     // we want the method to stop running, checkcing the next node to get to the last node in the chain
-//                 }
-//                 currentNode = currentNode.next; // travel through the chain of hashNodes
+        else {    // if hash table not empty whether one node or a chain of nodes cycle through it add last node in hte chain
+            let currentNode = this.buckets[index];  // if there is one node
+            console.log('key in insertHash again ' + this.buckets[index].key)
+            while(currentNode.next){ // while this is not the last node in the chain
+                console.log('hash insert currentNode.next ' + currentNode.next);
+                console.log('hash insert currentNode.next.key  ' + currentNode.next.key);
+                if(currentNode.next.key === key) {  // update the email address
+                    currentNode.next.value = value; // equal to the value passed in
+                    return;     // we want the method to stop running, checkcing the next node to get to the last node in the chain
+                }
+                currentNode = currentNode.next; // travel through the chain of hashNodes
 
-//             }
-//             currentNode.next = new HashNode(key, value); 
+            }
+            currentNode.next = new HashNode(key, value); 
             
-//             //console.log('currentNode.next ' + currentNode.next);
-//             //add our new hashNode to the end of the chain
-//             //this.insertBst();
+            //console.log('currentNode.next ' + currentNode.next);
+            //add our new hashNode to the end of the chain
+            //this.insertBst();
         
-//     };
-// }
+    };
+}
 
     // insertBst(key, value){
     //     console.log('key ' +  ' ' + key);
@@ -130,44 +130,60 @@ instbst(key, value){
         let index = this.hash(key); // bucket which is the index of the array
         // 2 scenarios: check if bucket is empty else bucket is not empty and go through the chain if ther
         // is a chain to the last node.
-        if(!this.buckets[index]){     // if the hashtable is empty
-            this.buckets[index] = new HashNode(key, value);      //make a new new node at that index. 
-            let newNode = this.buckets[index];
-            //this.insertBst(newNode.key, newNode.value);
-        } else if(this.buckets[index].key === key) {  // checks the first node, always checking the next node
-            console.log('Key in instbst ' + this.buckets[index].key);   
-            this.buckets[index].value = value; // will update the email address if they are at the first node in the bucket
-        }
-        
-        else {    // if hash table not empty whether one node or a chain of nodes cycle through it add last node in hte chain
+        // if(!this.buckets[index]){     // if the hashtable is empty
+        //     this.buckets[index] = new HashNode(key, value);      //make a new new node at that index. 
+            
+        //     //this.insertBst(newNode.key, newNode.value);
+        // } //else if(this.buckets[index].key === key) {  // checks the first node, always checking the next node
+          // delete it
+           // console.log('Key in instbst ' + this.buckets[index].key);   
+            //this.buckets[index].value = value; // will update the email address if they are at the first node in the bucket
+        //}
+        if(!this.buckets[index]) {    // if hash table not empty whether one node or a chain of nodes cycle through it add last node in hte chain
+            this.buckets[index] = new HashNode(key, value);
+            
             let currentNode = this.buckets[index];  // if there is one node
             console.log('key in instbst again ' + this.buckets[index].key)
-            while(currentNode.next){ // while this is not the last node in the chain
+            console.log('currentNode.next ' + currentNode.next);
+            while(currentNode.key){ // while this is not the last node in the chain
 
                 //console.log('this.left ' + currentNode.key + ' ' + currentNode.next.key);
                 if(currentNode.key < currentNode.next.key && this.left)
                 {
+                    currentNode.left.instbst(new HashNode(key, value));
+
                     console.log('this.left ' + currentNode.key + ' ' + currentNode.next.key);
                 } else if(currentNode.key < currentNode.next.key){
+
+                      currentNode.left = new HashNode(key, value);
+
                       console.log('hello 2');
-                } else if(currentNode.key > currentNode.next.key && currentNode.right)
-                {
+                } else if(currentNode.key > currentNode.next.key && this.right){
+
+                    currentNode.right.instbst(new HashNode(key, value));
+
+                    console.log('hello 3 - this.right ' + currentNode.key + " " + 'greater than ' + 
+                    
+                    currentNode.next.key );
                     console.log('hello 3');
                 } else if(currentNode.key > currentNode.next.key){
+
+                    currentNode.right = new HashNode(key, value);
+
                     console.log('hello 4 - this.right ' + currentNode.key + " " + 'greater than ' + currentNode.next.key );
-                }else{
-                  return null;
-                }
+                } //else {
+                //   return null;
+                // }
 
-                console.log('instbst currentNode.next ' + currentNode.next);
-                console.log('instbst currentNode.next.key  ' + currentNode.next.key);
-                if(currentNode.next.key === key) {  // update the email address
-                    currentNode.next.value = value; // equal to the value passed in
-                     console.log('instbst currentNode.next.value  ' + currentNode.next.value);
-                    return;     // we want the method to stop running, checkcing the next node to get to the last node in the chain
-                }
+                // console.log('instbst currentNode.next ' + currentNode.next);
+                // console.log('instbst currentNode.next.key  ' + currentNode.next.key);
+                // if(currentNode.next.key === key) {  // update the email address
+                //    currentNode.next.value = value; // equal to the value passed in
+                //     console.log('instbst currentNode.next.value  ' + currentNode.next.value);
+                //    return;     // we want the method to stop running, checkcing the next node to get to the last node in the chain
+                //}
                 currentNode = currentNode.next; // travel through the chain of hashNodes
-
+                //return null;
             }
             currentNode.next = new HashNode(key, value); 
             
@@ -177,6 +193,7 @@ instbst(key, value){
         
     };
 }
+
 
 
 //  instbst(key) {
